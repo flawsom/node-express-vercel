@@ -1,13 +1,13 @@
-const express = require('express');
-const server = express();
- 
-server.all('/', (req, res) => {
-  res.send(`NOW GO TO ANY UPTIME APP and paste this link`)
-})
- 
-function keepAlive() {
-  server.listen(3000, () => { console.log("Server is Ready!!" + Date.now()) });
-}
- 
-module.exports = keepAlive;
+const express = require("express");
+const router = express.Router();
+
+router.get("/", async (req, res, next) => {
+  return res.status(200).json({
+    title: "Express Testing",
+    message: "The app is working properly!",
+  });
+});
+
+module.exports = router;
+
 
